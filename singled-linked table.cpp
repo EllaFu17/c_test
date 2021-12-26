@@ -32,7 +32,7 @@ Status CreateList_L(LinkList &L, int n)
 	for (i = 0; i < n; i++){
 		p = (LinkList)malloc(sizeof(LNode));    //make a new node
 		if (!p) return ERROR;
-		printf("ÇëÊäÈëÊıÖµ£º"); 
+		printf("Please print the numberï¼š"); 
 		scanf("%d", &p->data);                    //enter element data from keyboard
 		//p->next=L->next;
 		// L->next=p;
@@ -45,7 +45,7 @@ Status CreateList_L(LinkList &L, int n)
 }
 
 //======================================
-//´òÓ¡µ¥Á´±íµÄËùÓĞÔªËØ
+//æ‰“å°å•é“¾è¡¨çš„æ‰€æœ‰å…ƒç´ 
 //=======================================
 void LinkedListPrint(LinkList L)
 {  LinkList A=(LinkList)malloc(sizeof(LNode));
@@ -58,7 +58,7 @@ void LinkedListPrint(LinkList L)
 }
 
 //=========================================
-// Çóµ¥Á´±íµÄ³¤¶È
+// æ±‚å•é“¾è¡¨çš„é•¿åº¦
 //=========================================
 int ListLength_L(LinkList L)
 {   LinkList A=(LinkList)malloc(sizeof(LNode));
@@ -72,7 +72,7 @@ int ListLength_L(LinkList L)
 }
 
 //=========================================
-//ÕÒ³ö×î´óÖµ½áµã£¬·µ»Ø¸ÃÊıÖµ 
+//æ‰¾å‡ºæœ€å¤§å€¼ç»“ç‚¹ï¼Œè¿”å›è¯¥æ•°å€¼ 
 //=========================================
 int GetMax(LinkList L)
 {  LinkList A=(LinkList)malloc(sizeof(LNode));
@@ -138,7 +138,7 @@ int main()
 	//get the max
 	int maxVal;
 	maxVal = GetMax(LA);
-	printf("the maximum value is %d\n", maxVal);//Ô­À´Ğ´µÄÊÇminimum 
+	printf("the maximum value is %d\n", maxVal);//åŸæ¥å†™çš„æ˜¯minimum 
 	//Move the maximum node to the front of the list
 	MoveMax(LA, pMaxNode);
     LinkedListPrint(LA);
