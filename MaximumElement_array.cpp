@@ -3,9 +3,9 @@
 int GetMax (int a[], int n)
 {
     int i=0,m=a[0];
-for(i;i<n;i++)
+    for(i;i<n;i++)
 {
-	if(a[i+1]>m)
+	if(a[i]>m)
 	m=a[i+1];
 }
 return m;
