@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
+#include <mm_malloc.h>
 
 #define ERROR 0
 #define OK 1
 #define TRUE 1
 #define FALSE 0
+
 typedef int ElemType;
 typedef int Status;
 
@@ -23,12 +24,12 @@ Status CreateList_L(LinkList &L, int n)
 {
 	LinkList p, q;
 	int i;
-
+	printf("please enter the numbers:\n");
 	L = (LinkList)malloc(sizeof(LNode)); //create an empty list
 	if (!L) return ERROR;
 	L->next = NULL;
 	q = L;
-	if(i=0)
+	if(i==0)
 	{
 		p = (LinkList)malloc(sizeof(LNode));
 		if (!p) return ERROR;
@@ -50,37 +51,38 @@ Status CreateList_L(LinkList &L, int n)
 }
 
 //====================================================
-//test whether the data elements in a singly linked list is in ascending order 
+//test whether the data elements in a singly linked list are in ascending order 
 //===================================================
-Status IsAscendingOrder(LinkList L,int n)
+Status IsAscendingOrder(LinkList L, int n)
 {
 	LinkList flag=L;
-	int i=0;
-	for(i;i<n;i++)
+    
+	for(int i = 1;i<n;i++)
 	{
-		if(flag->data<flag->next->data)
+		if(flag->data > flag->next->data)
 		{
 			return 0;
 			break;
 		}
-		else flag=flag->next;
+		else flag = flag->next;
 	}
+    return 1;
 }
-int main()
+
+int main(void)
 {
 
 	LinkList LA;
 
 	// Create a singly linked list with elements of 21, 18, 30, 75, 42, 56
 	CreateList_L(LA, 6);
-  
 	if (IsAscendingOrder(LA,6))
 	{
-		printf("单链表顺序递增\n");
+		printf("Elements in a singly linked list are in increasing order.\n");
 	}
 	else
 	{
-		printf("单链表不是顺序递增\n");
+		printf("Elements in a singly linked list aren't in increasing order.\n");
 	}
 
 }
