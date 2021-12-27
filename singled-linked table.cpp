@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <malloc.h>
+#include <mm_malloc.h>
 
 #define ERROR 0
 #define OK 1
@@ -23,17 +23,16 @@ typedef struct L_node
 Status CreateList_L(LinkList &L, int n)
 {
 	LinkList p, q;
-	int i;
 
 	L = (LinkList)malloc(sizeof(LNode)); //create an empty list
 	if (!L) return ERROR;
 	L->next = NULL;
 	q = L;
-	for (i = 0; i < n; i++){
+	for (int i = 0; i < n; i++){
 		p = (LinkList)malloc(sizeof(LNode));    //make a new node
 		if (!p) return ERROR;
-		printf("Please print the number："); 
-		scanf("%d", &p->data);                    //enter element data from keyboard
+		printf("please enter:\n"); 
+		scanf("%d\n", &p->data);                    //enter element data from keyboard
 		//p->next=L->next;
 		// L->next=p;
 		p->next = NULL;
@@ -45,20 +44,23 @@ Status CreateList_L(LinkList &L, int n)
 }
 
 //======================================
-//打印单链表的所有元素
+// print the list
 //=======================================
 void LinkedListPrint(LinkList L)
-{  LinkList A=(LinkList)malloc(sizeof(LNode));
+{  
+	printf("\nthe list is:\n");
+	LinkList A=(LinkList)malloc(sizeof(LNode));
     A=L;
-	while(NULL!=A->next){
+	while(NULL!=A->next)
+	{
 		A=A->next;
-		printf("%d\n",A->data);
+		printf("%d\n", A->data);
 	}
     printf("\n");
 }
 
 //=========================================
-// 求单链表的长度
+// get the length of the linklist
 //=========================================
 int ListLength_L(LinkList L)
 {   LinkList A=(LinkList)malloc(sizeof(LNode));
@@ -72,7 +74,7 @@ int ListLength_L(LinkList L)
 }
 
 //=========================================
-//找出最大值结点，返回该数值 
+//find the maximum element
 //=========================================
 int GetMax(LinkList L)
 {  LinkList A=(LinkList)malloc(sizeof(LNode));
@@ -88,7 +90,7 @@ return m;
 }
 
 //=========================================
-//Move the maximum node to the front of the list
+// Move the maximum node to the front of the list
 // pMax is the pointer to the MaxNode
 //=========================================
 void MoveMax(LinkList L, LinkList pMax)
@@ -117,7 +119,7 @@ void MoveMax(LinkList L, LinkList pMax)
 	L->next=pMax;
 }
 
-int main()
+int main(void)
 {
 
 	LinkList LA;
@@ -138,9 +140,9 @@ int main()
 	//get the max
 	int maxVal;
 	maxVal = GetMax(LA);
-	printf("the maximum value is %d\n", maxVal);//原来写的是minimum 
+	printf("the maximum value is %d\n", maxVal);//original one is minimum here
 	//Move the maximum node to the front of the list
 	MoveMax(LA, pMaxNode);
-    LinkedListPrint(LA);
+	LinkedListPrint(LA);
 
 }
