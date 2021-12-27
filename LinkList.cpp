@@ -23,18 +23,25 @@ typedef struct L_node
 Status CreateList_L(LinkList &L, int n)
 {
 	LinkList p, q;
-
+	int i;
+	printf("please enter the numbers:\n");
 	L = (LinkList)malloc(sizeof(LNode)); //create an empty list
 	if (!L) return ERROR;
 	L->next = NULL;
 	q = L;
-	for (int i = 0; i < n; i++){
+	if(i==0)
+	{
+		p = (LinkList)malloc(sizeof(LNode));
+		if (!p) return ERROR;
+		scanf("%d", &p->data);                    //enter element data from keyboard
+		p->next=L->next;
+		L->next=p;
+		L->data=p->data;
+	 } 
+	for (i = 1; i < n; i++){
 		p = (LinkList)malloc(sizeof(LNode));    //make a new node
 		if (!p) return ERROR;
-		printf("please enter:\n"); 
-		scanf("%d\n", &p->data);                    //enter element data from keyboard
-		//p->next=L->next;
-		// L->next=p;
+		scanf("%d", &p->data);                    //enter element data from keyboard
 		p->next = NULL;
 		q->next = p;
 		q = p;
