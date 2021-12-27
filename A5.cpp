@@ -1,6 +1,6 @@
 #include<stdio.h>
 
-//求具有N个元素的整型数组b中最长平台的长度。
+//find the length of the longest platform in b.
 int GetMaxSubstring (int b[], int n)
 {
 
@@ -26,6 +26,6 @@ int main()
 	int maxlen;
 	maxlen=GetMaxSubstring(b, len);
 
-	printf("最长平台长度为%d\n",maxlen);
+	printf("the length is:%d\n",maxlen);
 	
 }
